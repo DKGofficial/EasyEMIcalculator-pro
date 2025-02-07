@@ -12,6 +12,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.28/jspdf.plugin.autotable.min.js"></script>
 </head>
 <body>
+    <div class="background-image"></div>
     <div class="page-container">
         <div class="calculator-container">
             <h1>EMI Calculator</h1>
@@ -34,9 +35,18 @@
             <button onclick="calculateEMI()">Calculate EMI</button>
 
             <div class="result">
-                <h2>Monthly EMI: ₹<span id="emiResult">0</span></h2>
-                <h3>Total Interest: ₹<span id="totalInterest">0</span></h3>
-                <h3>Total Repayment: ₹<span id="totalRepayment">0</span></h3>
+                <div class="circle">
+                    <h2>Monthly EMI</h2>
+                    <p>₹<span id="emiResult">0</span></p>
+                </div>
+                <div class="circle">
+                    <h2>Total Interest</h2>
+                    <p>₹<span id="totalInterest">0</span></p>
+                </div>
+                <div class="circle">
+                    <h2>Total Repayment</h2>
+                    <p>₹<span id="totalRepayment">0</span></p>
+                </div>
             </div>
 
             <div class="schedule">
