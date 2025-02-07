@@ -12,42 +12,38 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.28/jspdf.plugin.autotable.min.js"></script>
 </head>
 <body>
-    <div class="background-image"></div>
     <div class="page-container">
         <div class="calculator-container">
+            <img src="calculator.png" alt="Calculator Image" class="calculator-image">
+
             <h1>EMI Calculator</h1>
 
-            <div class="input-group">
-                <label for="loanAmount">Loan Amount (₹):</label>
-                <input type="number" id="loanAmount" placeholder="Enter loan amount">
-            </div>
+            <form id="emiForm">
+                <div class="input-group">
+                    <label for="loanAmount">Loan Amount (₹):</label>
+                    <input type="number" id="loanAmount" placeholder="Enter loan amount" required>
+                </div>
 
-            <div class="input-group">
-                <label for="interestRate">Interest Rate (% p.a.):</label>
-                <input type="number" id="interestRate" step="0.1" placeholder="Enter interest rate">
-            </div>
+                <div class="input-group">
+                    <label for="interestRate">Interest Rate (% per annum):</label>
+                    <input type="number" id="interestRate" step="0.1" placeholder="Enter interest rate" required>
+                </div>
 
-            <div class="input-group">
-                <label for="loanTenure">Loan Tenure (months):</label>
-                <input type="number" id="loanTenure" placeholder="Enter loan tenure">
-            </div>
+                <div class="input-group">
+                    <label for="loanTenure">Loan Tenure (in months):</label>
+                    <input type="number" id="loanTenure" placeholder="Enter loan tenure in months" required>
+                </div>
 
-            <button onclick="calculateEMI()">Calculate EMI</button>
+                <button type="button" onclick="calculateEMI()">Calculate EMI</button>
+            </form>
 
             <div class="result">
-                <div class="circle">
-                    <h2>Monthly EMI</h2>
-                    <p>₹<span id="emiResult">0</span></p>
-                </div>
-                <div class="circle">
-                    <h2>Total Interest</h2>
-                    <p>₹<span id="totalInterest">0</span></p>
-                </div>
-                <div class="circle">
-                    <h2>Total Repayment</h2>
-                    <p>₹<span id="totalRepayment">0</span></p>
-                </div>
+                <h2>Monthly EMI: ₹<span id="emiResult">0</span></h2>
+                <h3>Total Interest Payable: ₹<span id="totalInterest">0</span></h3>
+                <h3>Total Repayment Amount: ₹<span id="totalRepayment">0</span></h3>
             </div>
+
+            <div id="loanDetails"></div>
 
             <div class="schedule">
                 <h2>Repayment Schedule</h2>
@@ -59,16 +55,16 @@
                                 <th>EMI (₹)</th>
                                 <th>Principal (₹)</th>
                                 <th>Interest (₹)</th>
-                                <th>Outstanding (₹)</th>
+                                <th>Outstanding Balance (₹)</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <!-- Schedule rows inserted dynamically -->
+                            <!-- Schedule rows will be inserted here dynamically -->
                         </tbody>
                     </table>
                 </div>
 
-                <button onclick="downloadPDF()" class="download-btn">Download Schedule</button>
+                <button onclick="downloadPDF()" class="download-btn">Download Schedule as PDF</button>
             </div>
         </div>
     </div>
